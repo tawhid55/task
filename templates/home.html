@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+    <h4>All Products</h4>
+    <h1>Total: {{ object_list.count }}</h1>
+    <div class="row">  
+        {% for product in object_list %}
+            <div class="col-md-4 col-sm-12 col-lg-3 m-1">
+                <div class="card" style="width: 100%;">
+                    <img src="media/{{ product.mainimage }}" style="width:100%;" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">Category: {{ product.category }}</p>
+                        <p class="card-text">Price: {{ product.price }}/- Tk</p>
+                        <a href="#" class="btn btn-success">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+</div>
+{% endblock %}
